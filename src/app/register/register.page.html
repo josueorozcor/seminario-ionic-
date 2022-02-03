@@ -1,0 +1,69 @@
+<header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button (click)="goToLogin()"> Volver </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</header>
+<ion-content>
+<figure class="ion-text-center">
+  <img src="assets/images/logorojo.jpg"/>
+</figure>
+<form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+      
+<ion-item>
+  <ion-label>Nombre</ion-label>
+  <ion-input formControlName="nombre"></ion-input>
+</ion-item>
+
+<div class="validation-error">
+  <ng-container *ngFor="let validation of validation_messages.nombre">
+    {{validation.message}}
+  </ng-container>
+</div>
+
+<ion-item>
+  <ion-label>Apellido</ion-label>
+  <ion-input formControlName="apellido"></ion-input>
+</ion-item>
+
+<div class="validation-error">
+  <ng-container *ngFor="let validation of validation_messages.apellido">
+    <div
+      *ngIf="
+      registerForm.get('apellido').hasError(validation.type) &&
+        (registerForm.get('apellido').dirty || 
+        registerForm.get('apellido').touched
+      )"
+    >
+    <div class="alert">
+      <strong>Error: </strong> {{ validation.message }}
+    </div>
+    </div>
+  </ng-container>
+</div>
+<ion-item>
+  <ion-label>Email</ion-label>
+  <ion-input formControlName="email"></ion-input>
+</ion-item>
+
+<div class="validation-error">
+  <ng-container *ngFor="let validation of validation_messages.email">
+    {{validation.message}}
+  </ng-container>
+</div>
+
+<ion-item>
+  <ion-label>Password</ion-label>
+  <ion-input formControlName="password"></ion-input>
+</ion-item>
+
+<div class="validation-error">
+  <ng-container *ngFor="let validation of validation_messages.password">
+    {{validation.message}}
+  </ng-container>
+</div>
+
+<ion-button expand="full" shape="round" color="success" [disabled]="!registerForm.valid" type="submit"> Registrase </ion-button>
+</form>
+</ion-content>

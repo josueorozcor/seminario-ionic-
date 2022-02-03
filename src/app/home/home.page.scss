@@ -1,0 +1,30 @@
+p {
+  color:rgb(0, 255, 42);  
+}
+
+.parrafo {
+    color: rgb(250, 9, 9);
+    font-size: 16px;
+    font-family: oblique bold, 'Times New Roman', Times, serif;
+}
+.imagen {
+    width: 50%;
+}
+
+#soyid {
+    width: 20%;
+}
+
+ion-avatar {
+    height: 120px;
+    width: 90%;
+}
+
+ion-avatar img {
+    width: 80px;
+    height: 80px;
+}
+
+.square-avatar {
+    --border-radius: 0;
+}
